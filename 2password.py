@@ -1,28 +1,22 @@
-#keep is simple stupid!!
+#keep it simple stupid!!
 import time
 import sys
 import getpass
 import hashlib
-super = 5
+stoper = 5
+def encryptpass(text):
+    return hashlib.sha256(text.encode()).hexdigest()
 username = input('set username:')
-password = getpass.getpass('set password:')
-hash_object = hashlib.sha256(password.encode())
-password = hash_object.hexdigest()
-password2 = getpass.getpass('set 2password:')
-hash_object = hashlib.sha256(password2.encode())
-password2 = hash_object.hexdigest()
+password = encryptpass(getpass.getpass('set password:'))
+password2 = encryptpass(getpass.getpass('set 2password:'))
 while True:
     loginusername = input('enter username:')
-    logintry = getpass.getpass('enter password:')
-    hash_object = hashlib.sha256( logintry.encode())
-    logintry = hash_object.hexdigest()
-    logintry2 = getpass.getpass('enter 2password:')
-    hash_object = hashlib.sha256( logintry2.encode())
-    logintry2 = hash_object.hexdigest()
+    logintry = encryptpass(getpass.getpass('enter password:'))
+    logintry2 =  encryptpass(getpass.getpass('enter 2password:'))
     if password == logintry and password2 == logintry2 and username == loginusername:
         print('login successful!')
         sys.exit()
     else:
-        time.sleep(super)
-        super += super
+        time.sleep(stoper)
+        stoper += stoper
         print('error username or password or 2password miss')
