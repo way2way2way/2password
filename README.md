@@ -3,4 +3,4 @@ what...test
 website is...https://way.great-site.net/2password/index.html
 Is there anyone who can develop it?
 encrypted!(no salt)
-unlicense to mit license
+mit license
